@@ -1,0 +1,40 @@
+@import '../../../styles/colors';
+
+nav {
+  background-color: $white;
+  padding: 1rem 2rem;
+  .brand {
+    height: 1.5rem;
+  }
+  .links {
+    a {
+      color: $darkest;
+      text-decoration: none;
+      &:active {
+        color: $primary;
+        font-weight: 600;
+      }
+    }
+  }
+  .nav-search {
+    display: flex;
+    input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      &::placeholder {
+        color: $medium;
+        font-weight: 700;
+      }
+    }
+    .btn-go-search {
+      background-color: $primary;
+      color: $white;
+      border-radius: 50%;
+      padding: .25rem;
+    }
+  }
+  .nav-input-cpf {
+    background-color: $light;
+  }
+}

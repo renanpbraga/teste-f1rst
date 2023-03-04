@@ -1,0 +1,38 @@
+<nav class="row align-items-center gap-4">
+  <div class="col-auto flex align-items-center">
+    <img class="brand" src="assets/logo-santander.svg" alt="" />
+  </div>
+  <div class="col-auto links">
+    <a href="#">Para você</a>
+  </div>
+  <div class="col-auto links">
+    <a href="#">Para sua empresa</a>
+  </div>
+  <div class="col-3 nav-search">
+    <input type="text" placeholder="O que você procura?" [(ngModel)]="search" />
+    <span>
+      <i
+        *ngIf="!search"
+        class="icons icon-search cursor-pointer"
+        (click)="handleSearch()"
+      ></i>
+    </span>
+    <button *ngIf="search" class="btn btn-go-search">
+      <i class="icons icon-right cursor-pointer" (click)="handleSearch()"></i>
+    </button>
+  </div>
+  <div class="col-auto">
+    <div class="d-flex gap-3">
+      <span>Acessar</span>
+      <a href="#">Pessoa física</a>
+      <a href="#">Pessoa jurídica</a>
+    </div>
+    <div>
+      <input
+        type="text"
+        class="form-control nav-input-cpf"
+        mask="000.000.000-00"
+      />
+    </div>
+  </div>
+</nav>

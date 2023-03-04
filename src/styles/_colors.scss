@@ -1,0 +1,23 @@
+$primary-darkest:   #ec0000 !default;
+$black:             #000000 !default;
+$gray-700:          #333333 !default;
+$gray-500:          #6d6d6d !default;
+$gray-300:          #c2c2c2 !default;
+$gray-100:          #f0f0f0 !default;
+$white:             #ffffff !default;
+$primary:             $primary-darkest;
+$darkest:             $gray-700;
+$dark:                $gray-500;
+$medium:              $gray-300;
+$light:               $gray-100;
+
+
+$theme-colors: (
+  "primary":          $primary,
+  "darkest":          $darkest,
+  "dark":             $dark,
+  "medium":           $medium,
+  "light":            $light,
+  "white":            $white,
+  "black":            $black,
+) !default;
