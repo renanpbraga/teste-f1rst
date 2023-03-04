@@ -3,6 +3,7 @@
 nav {
   background-color: $white;
   padding: 1rem 2rem;
+  border-bottom: solid 1px $medium;
   .brand {
     height: 1.5rem;
   }
@@ -28,9 +29,14 @@ nav {
       }
     }
     .btn-go-search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: $primary;
       color: $white;
       border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
       padding: .25rem;
     }
   }
