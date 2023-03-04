@@ -14,6 +14,26 @@
   font-family: Santander, Arial, Helvetica, sans-serif;
 }
 
+.heading, .form-label {
+  color: $dark;
+}
+
+.text-xs {
+  font-size: 12px;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.text-xl {
+  font-size: 20px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
