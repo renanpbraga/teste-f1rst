@@ -1,27 +1,25 @@
 # TesteFirst
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Este projeto foi desenvolvido como parte do teste de admissão da empresa F1st Tecnologia.
 
-## Development server
+## Desafio
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Tela com formulários para formalização digital.
 
-## Code scaffolding
+### Etapas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Dados do cliente e Produto
+- Simulação
+- Formalização de contratação do produto
+- Integrar com json-server (chamar um endpoint que retorna uma requisição mock).
 
-## Build
+Obs.: Definição de objetos e propriedades é livre.
+Obs.: Definição de payloads é livre.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Será avaliada a navegabilidade entre as telas, integração comsumindo endpoints e estrutura de pacotes.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Iniciando o projeto
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para iniciar, rode o comando ng serve para iniciar a aplicação na rota 4200 (localhost:4200).
+Inicie o banco de dados mock a partir do comando: npx json-server --watch db.json (localhost:3000).
