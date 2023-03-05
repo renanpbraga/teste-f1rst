@@ -1,19 +1,25 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Renan Braga",
+      "email": "renan@email.com",
+      "phone": "21968951498",
+      "cpf": "05935931702",
+      "zipcode": "21863340",
+      "address": "Rua Marliéria",
+      "addressNumber": "61",
+      "addressComplement": null,
+      "district": "Bangu",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "id": 1
     }
   ],
-  "comments": [
+  "registry": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "userId": 1,
+      "agency": "46868",
+      "account": "94960"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
