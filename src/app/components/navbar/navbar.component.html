@@ -1,7 +1,7 @@
 <nav class="row align-items-center gap-4">
-  <div class="col-auto flex align-items-center">
+  <a routerLink="/" class="col-auto flex align-items-center">
     <img class="brand" src="assets/logo-santander.svg" alt="" />
-  </div>
+  </a>
   <div class="col-auto links">
     <a href="#">Para você</a>
   </div>
@@ -27,12 +27,20 @@
       <a href="#">Pessoa física</a>
       <a href="#">Pessoa jurídica</a>
     </div>
-    <div>
+    <div class="nav-input-cpf">
       <input
         type="text"
-        class="form-control nav-input-cpf"
+        class="form-control"
         mask="000.000.000-00"
+        [(ngModel)]="cpf"
+        (keyup.enter)="verifyUserCredentials()"
       />
+      <i
+        *ngIf="cpf?.length === 11 && !isLoading"
+        class="position-absolute icons icon-right cursor-pointer"
+        (click)="verifyUserCredentials()"
+      ></i>
+      <div *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"></div>
     </div>
   </div>
 </nav>

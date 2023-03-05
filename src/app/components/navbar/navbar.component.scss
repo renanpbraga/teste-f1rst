@@ -41,6 +41,19 @@ nav {
     }
   }
   .nav-input-cpf {
-    background-color: $light;
+    position: relative;
+    input {
+      background-color: $light;
+    }
+    .icon-right {
+      position: absolute;
+      top: 7px;
+      right: 4px;
+    }
+    .spinner-border-sm {
+      position: absolute;
+      top: 12px;
+      right: 4px;
+    }
   }
 }
