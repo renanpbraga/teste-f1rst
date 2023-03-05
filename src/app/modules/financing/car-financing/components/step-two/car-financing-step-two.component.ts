@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { NotifyService } from 'src/app/components/notify/notify.service';
@@ -12,10 +12,11 @@ import { VehicleCategoryEnum } from 'src/app/utils/enums/vehicle-category.enum';
 })
 export class CarFinancingStepTwoComponent implements OnInit {
   @Output() stepEmitter = new EventEmitter<number>();
+  @Input() step?: number;
   isSubmitted = false;
   stepOneData?: FinancingCarStepOne;
   vehicleCategoryEnum = VehicleCategoryEnum;
-  currentDate = new Date();
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,28 +32,9 @@ export class CarFinancingStepTwoComponent implements OnInit {
 
   submit() {}
 
-  getVehicleCategory(category: VehicleCategoryEnum) {
-    let vehicleCategory;
-    switch (category) {
-      case VehicleCategoryEnum.COMMON:
-        vehicleCategory = 'Passeio, Utilitário, Caminhonete, Jipe';
-        break;
-      case VehicleCategoryEnum.MOTOCYCLE:
-        vehicleCategory = 'Motocicletas e Triciclos';
-        break;
-      case VehicleCategoryEnum.TRUCK:
-        vehicleCategory = 'Caminhões, Reboques, Semi-reboques';
-        break;
-      case VehicleCategoryEnum.OTHER:
-        vehicleCategory = 'Demais veículos (Ônibus, Microônibus)';
-        break;
-      default:
-        break;
+  backStep() {
+    if (this.step) {
+      this.stepEmitter.emit(this.step - 1)
     }
-    return vehicleCategory;
-  }
-
-  onDateChange(event: any) {
-    this.currentDate = event;
   }
 }

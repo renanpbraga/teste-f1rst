@@ -37,4 +37,26 @@ export class AppService {
       this.currentUser.next(JSON.parse(user));
     }
   }
+
+  getVehicleBrands(vehicleType: string) {
+    return this.http.get(`https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas`);
+  }
+
+  getVehicleModels(vehicleType: string, brandCode: string) {
+    return this.http.get(
+      `https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas/${brandCode}/modelos`
+    );
+  }
+
+  getVehicleManufactureYears(vehicleType: string, brandCode: string, modelCode: string) {
+    return this.http.get(
+      `https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas/${brandCode}/modelos/${modelCode}/anos`
+    );
+  }
+
+  getVehicleAveragePrice(vehicleType: string, brandCode: string, modelCode: string, yearCode: string) {
+    return this.http.get(
+      `https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas/${brandCode}/modelos/${modelCode}/anos/${yearCode}`
+    );
+  }
 }

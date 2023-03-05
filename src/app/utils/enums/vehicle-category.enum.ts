@@ -1,6 +1,4 @@
 export enum VehicleCategoryEnum {
-  COMMON = 'COMMON',
-  TRUCK = 'TRUCK',
-  MOTOCYCLE = 'MOTOCYCLE',
-  OTHER = 'OTHER',
+  CAR = 'carros',
+  MOTORCYCLE = 'motos',
 }

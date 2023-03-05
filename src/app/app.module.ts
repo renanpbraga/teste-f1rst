@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,10 +17,14 @@ import { CarFinancingComponent } from './modules/financing/car-financing/car-fin
 import { CarFinancingStepOneComponent } from './modules/financing/car-financing/components/step-one/car-financing-step-one.component';
 import { CarFinancingStepTwoComponent } from './modules/financing/car-financing/components/step-two/car-financing-step-two.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import ptBr from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
+import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
+import { registerLocaleData } from '@angular/common';
+import ptBr from '@angular/common/locales/pt';
+
 registerLocaleData(ptBr);
+defineLocale('pt-br', ptBrLocale);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +54,8 @@ registerLocaleData(ptBr);
       preventDuplicates: true,
     }),
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' },
+  { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

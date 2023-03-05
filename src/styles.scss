@@ -7,7 +7,6 @@
 @import './styles/overrides/fonts';
 @import './styles/overrides/buttons';
 @import './styles//overrides/toastr';
-@import './styles//overrides/datepicker';
 
 @font-face {
   font-family: Santander;
@@ -18,7 +17,11 @@
   font-family: Santander, Arial, Helvetica, sans-serif;
 }
 
-.heading, .form-label {
+.heading {
+  color: $darkest;
+}
+
+.form-label, .form-check-label {
   color: $dark;
 }
 

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-financing.component.scss']
 })
 export class CarFinancingComponent implements OnInit {
-  step = 2;
+  step = 1;
 
   constructor() { }
 
