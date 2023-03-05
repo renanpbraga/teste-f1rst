@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './modules/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './modules/auth/sign-up/sign-up.component';
 import { CarFinancingComponent } from './modules/financing/car-financing/car-financing.component';
+import { CarFinancingStepOneComponent } from './modules/financing/car-financing/components/step-one/car-financing-step-one.component';
 import { HomeComponent } from './modules/home/home.component';
 import { MainComponent } from './modules/main/main.component';
 

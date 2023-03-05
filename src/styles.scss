@@ -2,8 +2,12 @@
 @import './styles/colors.scss';
 
 
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss';
+
 @import './styles/overrides/fonts';
 @import './styles/overrides/buttons';
+@import './styles//overrides/toastr';
+@import './styles//overrides/datepicker';
 
 @font-face {
   font-family: Santander;
@@ -46,6 +50,9 @@
   color: $white !important;
 }
 
+.bs-datepicker-head {
+  background-color: red
+}
 
 
 @import '~bootstrap';

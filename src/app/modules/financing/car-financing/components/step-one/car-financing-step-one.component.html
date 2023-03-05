@@ -1,0 +1,114 @@
+<section class="container p-4">
+  <h1 class="text-dark">Financiamento veicular</h1>
+  <form [formGroup]="formData" (ngSubmit)="submit()">
+    <div>
+      <span class="fw-semibold text-dark text-lg">Dados do veículo</span>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <label for="vehicle-year" class="form-label">Ano do veículo</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="vehicleYear"
+            [ngClass]="{
+              'is-invalid': isSubmitted && f.vehicleYear.errors,
+              'is-valid': isSubmitted && !f.vehicleYear.errors
+            }"
+          />
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <label for="vehicle-model-year" class="form-label"
+            >Ano do modelo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            formControlName="vehicleModelYear"
+            [ngClass]="{
+              'is-invalid': isSubmitted && f.vehicleModelYear.errors,
+              'is-valid': isSubmitted && !f.vehicleModelYear.errors
+            }"
+          />
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <label for="is-zero-km" class="form-label">Veículo 0Km?</label>
+          <select
+            name="select-is-zero-km"
+            id="is-zero-km"
+            class="form-select"
+            formControlName="isZeroKm"
+            [ngClass]="{
+              'is-invalid': isSubmitted && f.isZeroKm.errors,
+              'is-valid': isSubmitted && !f.isZeroKm.errors
+            }"
+          >
+            <option
+              *ngFor="let option of isZeroKmOptions"
+              [value]="option.value"
+            >
+              {{ option.title }}
+            </option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <label for="vehicle-category" class="form-label"
+            >Categoria do veículo</label
+          >
+          <select
+            name="select-vehicle-category"
+            id="vehicle-category"
+            class="form-select"
+            formControlName="vehicleCategory"
+            [ngClass]="{
+              'is-invalid': isSubmitted && f.vehicleCategory.errors,
+              'is-valid': isSubmitted && !f.vehicleCategory.errors
+            }"
+          >
+            <option
+              *ngFor="let option of vehicleCategoryOptions"
+              [value]="option.value"
+            >
+              {{ option.title }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <span class="fw-semibold text-dark text-lg">Dados do financiamento</span>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <label for="vehicle-value" class="form-label">Valor do veículo</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="vehicleValue"
+            [ngClass]="{
+              'is-invalid': isSubmitted && f.vehicleValue.errors,
+              'is-valid': isSubmitted && !f.vehicleValue.errors
+            }"
+          />
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <label for="financing-value" class="form-label"
+            >Valor do financiamento</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            formControlName="financingValue"
+            [ngClass]="{
+              'is-invalid': isSubmitted && f.financingValue.errors,
+              'is-valid': isSubmitted && !f.financingValue.errors
+            }"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary" type="submit">Continuar</button>
+      </div>
+    </div>
+  </form>
+</section>
