@@ -1,0 +1,6 @@
+<button [class]="'btn btn-' + btnType" [type]="submit ? 'submit' : 'button'" [disabled]="isLoading || isDisabled">
+  <span *ngIf="!isLoading">
+    <ng-content></ng-content>
+  </span>
+  <div *ngIf="isLoading" class="spinner-border" role="status"></div>
+</button>
