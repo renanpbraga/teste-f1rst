@@ -1,0 +1,26 @@
+<section class="bg-primary" *ngIf="currentUser">
+  <div class="row">
+    <div class="col d-flex align-items-center px-5 py-2">
+      <h6 class="text-white m-0">Olá, {{ currentUser.name }}!</h6>
+    </div>
+  </div>
+</section>
+<section class="p-4">
+  <div class="row flex-col justify-content-center gap-2 mt-4">
+    <div class="col-6">
+      <h5>Financiamentos</h5>
+    </div>
+    <div class="col-6 d-flex flex-wrap justify-content-between gap-3">
+      <a
+        class="card d-flex align-items-center justify-content-center"
+        [routerLink]="card.link"
+        *ngFor="let card of cards"
+      >
+        <i class="icon" [class]="card.icon"></i>
+        <span style="font-size: 12px; text-align: center">{{
+          card.title
+        }}</span>
+      </a>
+    </div>
+  </div>
+</section>
