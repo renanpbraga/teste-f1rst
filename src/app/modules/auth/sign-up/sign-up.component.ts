@@ -77,6 +77,11 @@ export class SignUpComponent implements OnInit {
       this.formData.controls.cpf.setErrors({
         incorrect: true,
       });
+      this.notifyService.sendMessage({
+        message:
+          'Digite um CPF válido.',
+        type: NotifyType.error,
+      });
       this.isLoading = false;
       return;
     }

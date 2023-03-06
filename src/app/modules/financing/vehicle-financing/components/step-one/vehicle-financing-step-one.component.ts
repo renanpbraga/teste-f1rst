@@ -228,7 +228,6 @@ export class VehicleFinancingStepOneComponent implements OnInit {
             averagePrice = averagePrice.replace('.', '');
             averagePrice = averagePrice.replace(',', '');
             averagePrice = averagePrice.substring(0, averagePrice.length - 2);
-            console.log(averagePrice);
 
             this.formData.controls.vehicleAveragePrice.setValue(averagePrice);
             this.formData.controls.desiredFinancingValue.setValue(averagePrice);

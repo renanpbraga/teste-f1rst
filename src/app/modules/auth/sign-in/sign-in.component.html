@@ -11,6 +11,7 @@
           class="form-control"
           id="agency"
           formControlName="agency"
+          mask="0000-0"
           [ngClass]="{
             'is-invalid': isSubmitted && f.agency.errors,
             'is-valid': isSubmitted && !f.agency.errors
@@ -24,6 +25,7 @@
           class="form-control"
           id="account"
           formControlName="account"
+          mask="0000-0"
           [ngClass]="{
             'is-invalid': isSubmitted && f.account.errors,
             'is-valid': isSubmitted && !f.account.errors

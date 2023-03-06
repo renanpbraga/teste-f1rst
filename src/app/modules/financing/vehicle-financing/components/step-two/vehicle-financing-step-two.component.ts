@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
 import { NotifyService } from 'src/app/components/notify/notify.service';
+import { UserDto } from 'src/app/utils/dto/user-dto';
 import { VehicleCategoryEnum } from 'src/app/utils/enums/vehicle-category.enum';
 import { FinancingInput } from 'src/app/utils/inputs/vehicle-financing.input';
 
@@ -17,11 +18,12 @@ export class VehicleFinancingStepTwoComponent implements OnInit {
   stepOneData?: FinancingInput;
   vehicleCategoryEnum = VehicleCategoryEnum;
   acceptTerms = false;
+  currentUser?: UserDto;
 
   constructor(
     private formBuilder: FormBuilder,
     private readonly notifyService: NotifyService,
-    private readonly appService: AppService,
+    private readonly appService: AppService
   ) {}
 
   ngOnInit(): void {
@@ -29,14 +31,20 @@ export class VehicleFinancingStepTwoComponent implements OnInit {
     if (mockCarStepOne) {
       this.stepOneData = JSON.parse(mockCarStepOne);
     }
+    this.appService.currentUser.subscribe({
+      next: (res) => {
+        this.currentUser = res;
+      },
+    });
   }
 
   submit() {
-    if (this.stepOneData && this.acceptTerms) {
+    if (this.stepOneData && this.acceptTerms && this.currentUser) {
+      this.stepOneData.userId = this.currentUser.id;
       this.appService.registerFinancing(this.stepOneData).subscribe({
         next: (res) => {
           this.stepEmitter.emit(3);
-        }
+        },
       });
     }
   }
