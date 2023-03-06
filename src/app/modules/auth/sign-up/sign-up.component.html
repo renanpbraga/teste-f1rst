@@ -144,15 +144,43 @@
         />
       </div>
       <div class="col-xs-12 col-md-3 col-lg-4">
-        <label for="state" class="form-label">Estado</label>
+        <label for="account" class="form-label">Estado</label>
         <input
           type="text"
           class="form-control"
-          id="state"
-          formControlName="state"
+          id="account"
+          formControlName="account"
           [ngClass]="{
-            'is-invalid': isSubmitted && f.state.errors,
-            'is-valid': isSubmitted && f.state.errors
+            'is-invalid': isSubmitted && f.account.errors,
+            'is-valid': isSubmitted && f.account.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="agency" class="form-label">Agência</label>
+        <input
+          type="text"
+          class="form-control"
+          id="agency"
+          formControlName="agency"
+          mask="0000-0"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.agency.errors,
+            'is-valid': isSubmitted && f.agency.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="state" class="form-label">Conta</label>
+        <input
+          type="text"
+          class="form-control"
+          id="account"
+          formControlName="account"
+          mask="0000-0"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.agency.errors,
+            'is-valid': isSubmitted && f.agency.errors
           }"
         />
       </div>

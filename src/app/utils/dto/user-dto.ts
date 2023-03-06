@@ -11,4 +11,6 @@ export interface UserDto {
   district: string;
   city: string;
   state: string;
+  agency: string;
+  account: string;
 }

@@ -13,14 +13,16 @@ import { SignUpComponent } from './modules/auth/sign-up/sign-up.component';
 import { SignUpSuccessComponent } from './modules/auth/sign-up/components/sign-up-success/sign-up-success.component';
 import { HomeComponent } from './modules/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarFinancingComponent } from './modules/financing/car-financing/car-financing.component';
-import { CarFinancingStepOneComponent } from './modules/financing/car-financing/components/step-one/car-financing-step-one.component';
-import { CarFinancingStepTwoComponent } from './modules/financing/car-financing/components/step-two/car-financing-step-two.component';
+import { VehicleFinancingComponent } from './modules/financing/vehicle-financing/vehicle-financing.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgxMaskModule } from 'ngx-mask';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+import { DatePickerModule } from './components/date-picker/date-picker.module';
+import { VehicleFinancingStepThreeComponent } from './modules/financing/vehicle-financing/components/step-three/vehicle-financing-step-three.component';
+import { VehicleFinancingStepOneComponent } from './modules/financing/vehicle-financing/components/step-one/vehicle-financing-step-one.component';
+import { VehicleFinancingStepTwoComponent } from './modules/financing/vehicle-financing/components/step-two/vehicle-financing-step-two.component';
 
 registerLocaleData(ptBr);
 defineLocale('pt-br', ptBrLocale);
@@ -35,9 +37,10 @@ defineLocale('pt-br', ptBrLocale);
     SignUpComponent,
     SignUpSuccessComponent,
     HomeComponent,
-    CarFinancingComponent,
-    CarFinancingStepOneComponent,
-    CarFinancingStepTwoComponent,
+    VehicleFinancingComponent,
+    VehicleFinancingStepOneComponent,
+    VehicleFinancingStepTwoComponent,
+    VehicleFinancingStepThreeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -46,6 +49,7 @@ defineLocale('pt-br', ptBrLocale);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DatePickerModule,
     NgxMaskModule.forRoot(),
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({

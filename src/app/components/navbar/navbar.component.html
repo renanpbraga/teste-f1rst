@@ -1,14 +1,16 @@
-<nav class="row align-items-center gap-4">
-  <a routerLink="/" class="col-auto flex align-items-center">
-    <img class="brand" src="assets/logo-santander.svg" alt="" />
-  </a>
-  <div class="col-auto links">
+<nav class="row align-items-center justify-content-center gap-2">
+  <div class="col-xs-12 col-md-auto d-flex justify-content-center">
+    <a routerLink="/" class="col-auto flex align-items-center">
+      <img class="brand" src="assets/logo-santander.svg" alt="" />
+    </a>
+  </div>
+  <div class="col-auto links d-flex justify-content-center">
     <a href="#">Para você</a>
   </div>
-  <div class="col-auto links">
+  <div class="col-auto links d-flex justify-content-center">
     <a href="#">Para sua empresa</a>
   </div>
-  <div class="col-3 nav-search">
+  <div class="col-xs-12 col-md-auto nav-search">
     <input type="text" placeholder="O que você procura?" [(ngModel)]="search" />
     <span>
       <i

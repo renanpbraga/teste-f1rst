@@ -1,25 +1,5 @@
 {
-  "users": [
-    {
-      "name": "Renan Braga",
-      "email": "renan@email.com",
-      "phone": "21968951498",
-      "cpf": "05935931702",
-      "zipcode": "21863340",
-      "address": "Rua Marliéria",
-      "addressNumber": "61",
-      "addressComplement": null,
-      "district": "Bangu",
-      "city": "Rio de Janeiro",
-      "state": "RJ",
-      "id": 1
-    }
-  ],
-  "registry": [
-    {
-      "userId": 1,
-      "agency": "46868",
-      "account": "94960"
-    }
-  ]
+  "users": [],
+  "registry": [],
+  "financing": []
 }

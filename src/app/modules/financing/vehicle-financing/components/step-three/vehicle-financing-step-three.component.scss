@@ -1,0 +1,9 @@
+@import '../../../../../../styles/colors';
+:host {
+  .col-12 {
+    background-color: $medium;
+  }
+  .col-6 {
+    background-color: $light;
+  }
+}

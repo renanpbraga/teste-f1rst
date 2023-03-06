@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { UserDto } from './utils/dto/user-dto';
 import { UserInput } from './utils/inputs/user.input';
+import { FinancingInput } from './utils/inputs/vehicle-financing.input';
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +40,9 @@ export class AppService {
   }
 
   getVehicleBrands(vehicleType: string) {
-    return this.http.get(`https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas`);
+    return this.http.get(
+      `https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas`
+    );
   }
 
   getVehicleModels(vehicleType: string, brandCode: string) {
@@ -48,15 +51,28 @@ export class AppService {
     );
   }
 
-  getVehicleManufactureYears(vehicleType: string, brandCode: string, modelCode: string) {
+  getVehicleManufactureYears(
+    vehicleType: string,
+    brandCode: string,
+    modelCode: string
+  ) {
     return this.http.get(
       `https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas/${brandCode}/modelos/${modelCode}/anos`
     );
   }
 
-  getVehicleAveragePrice(vehicleType: string, brandCode: string, modelCode: string, yearCode: string) {
+  getVehicleAveragePrice(
+    vehicleType: string,
+    brandCode: string,
+    modelCode: string,
+    yearCode: string
+  ) {
     return this.http.get(
       `https://parallelum.com.br/fipe/api/v1/${vehicleType}/marcas/${brandCode}/modelos/${modelCode}/anos/${yearCode}`
     );
+  }
+
+  registerFinancing(financing: FinancingInput) {
+    return this.http.post(`http://localhost:3000/financing`, financing);
   }
 }

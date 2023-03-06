@@ -33,22 +33,19 @@ export class SignInComponent implements OnInit {
     this.isSubmitted = true;
     this.isLoading = true;
     const data = this.formData.getRawValue();
-    this.appService.findRegistry().subscribe({
+    this.appService.findUser().subscribe({
       next: (res: any) => {
-        const registries: RegistryDto[] = res;
-        if (registries.length) {
-          const isRegistered = registries.find(
-            (registry) =>
-              registry.agency === data.agency &&
-              registry.account === data.account
+        const users: UserDto[] = res;
+        if (users.length) {
+          const isUser = users.find(
+            (user) =>
+              user.agency === data.agency && user.account === data.account
           );
-          if (isRegistered) {
+          if (isUser) {
             this.appService.findUser().subscribe({
               next: (res: any) => {
                 const users: UserDto[] = res;
-                const currentUser = users.find(
-                  (user) => user.id === isRegistered.userId
-                );
+                const currentUser = users.find((user) => user.id === isUser.id);
                 if (currentUser) {
                   this.appService.saveUserOnStorage(currentUser);
                 }
@@ -66,6 +63,10 @@ export class SignInComponent implements OnInit {
             });
             this.isLoading = false;
           }
+        } else {
+          setTimeout(() => {
+            this.router.navigateByUrl('/auth/sign-up');
+          }, 1000);
         }
       },
       error: (err) => {

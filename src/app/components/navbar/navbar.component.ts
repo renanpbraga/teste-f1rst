@@ -45,6 +45,9 @@ export class NavbarComponent implements OnInit {
               this.isLoading = false;
               this.router.navigateByUrl('/auth/sign-up');
             }
+          } else {
+            this.isLoading = false;
+            this.router.navigateByUrl('/auth/sign-up');
           }
         },
         error: (err) => {

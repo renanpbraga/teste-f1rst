@@ -1,0 +1,49 @@
+<section class="px-5 py-4">
+  <h1>Resultado da Simulação</h1>
+  <div class="row" *ngIf="stepOneData">
+    <div class="col-12">Aquisição</div>
+    <div class="col-6">Valor do veículo</div>
+    <div class="col-6">{{ stepOneData.vehicleAveragePrice | currency }}</div>
+    <div class="col-6">(-) Entrada</div>
+    <div class="col-6">{{ stepOneData.financialSupport | currency }}</div>
+    <div class="col-6">Outras despezas</div>
+    <div class="col-6">
+      (+) {{ stepOneData.vehicleAveragePrice | currency }}
+    </div>
+    <div class="col-6">Outras despezas</div>
+    <div class="col-6">
+      (=) {{ stepOneData.desiredFinancingValue | currency }}
+    </div>
+    <div class="col-12">Parcelas</div>
+    <div class="col-6">Prazo (meses)</div>
+    <div class="col-6">{{ stepOneData.instalmentsNumber }}</div>
+    <div class="col-6">Valor por mês</div>
+    <div class="col-6">
+      {{
+        stepOneData.desiredFinancingValue / stepOneData.instalmentsNumber +
+          (stepOneData.desiredFinancingValue / stepOneData.instalmentsNumber) *
+            0.2 | currency
+      }} - Obs.: juros fake... rs
+    </div>
+    <div class="col-12">Juros</div>
+    <div class="col-6">Taxa de juros efetiva</div>
+    <div class="col-6">10% a.a</div>
+    <div class="col-6">Taxa de juros nominal</div>
+    <div class="col-6">10% a.a</div>
+    <div class="col-6">Taxa referencial</div>
+    <div class="col-6">0% a.m</div>
+  </div>
+  <div class="row">
+    <div class="col-12 p-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change)="handleAcceptTerms()">
+        <label class="form-check-label" for="flexCheckDefault">
+          Entendo e aceitos os termos de uso.
+        </label>
+      </div>
+    </div>
+    <div class="col-12 p-2">
+      <app-btn-loading (click)="submit()">Solicitar financiamento</app-btn-loading>
+    </div>
+  </div>
+</section>

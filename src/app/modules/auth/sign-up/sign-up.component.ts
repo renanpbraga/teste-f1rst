@@ -16,7 +16,7 @@ import { UserInput } from 'src/app/utils/inputs/user.input';
 export class SignUpComponent implements OnInit {
   isSubmitted = false;
   isLoading = false;
-  signUpSuccess = true;
+  signUpSuccess = false;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -39,6 +39,8 @@ export class SignUpComponent implements OnInit {
     district: [{ value: null, disabled: true }, [Validators.required]],
     city: [{ value: null, disabled: true }, [Validators.required]],
     state: [{ value: null, disabled: true }, [Validators.required]],
+    agency: [null, [Validators.required, Validators.maxLength(5)]],
+    account: [null, [Validators.required, Validators.maxLength(5)]],
   });
 
   ngOnInit(): void {}
