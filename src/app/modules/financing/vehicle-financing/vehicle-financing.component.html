@@ -1,0 +1,3 @@
+<app-vehicle-financing-step-one *ngIf="step === 1" (stepEmitter)="handleStep($event)"></app-vehicle-financing-step-one>
+<app-vehicle-financing-step-two *ngIf="step === 2" [step]="step" (stepEmitter)="handleStep($event)"></app-vehicle-financing-step-two>
+<app-vehicle-financing-step-three *ngIf="step === 3" [step]="step" (stepEmitter)="handleStep($event)"></app-vehicle-financing-step-three>

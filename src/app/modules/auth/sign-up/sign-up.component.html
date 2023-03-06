@@ -1,0 +1,194 @@
+<form [formGroup]="formData" (ngSubmit)="submit()" *ngIf="!signUpSuccess">
+  <section class="p-4">
+    <h1 class="heading">Abra sua conta</h1>
+    <div class="row align-items-center g-3 mt-2">
+      <div class="col-xs-12">
+        <span class="h5 heading">Dados pessoais</span>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <label for="name" class="form-label">Nome completo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.name.errors,
+            'is-valid': isSubmitted && !f.name.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <label for="email" class="form-label">E-mail</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.email.errors,
+            'is-valid': isSubmitted && !f.email.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <label for="phone" class="form-label">Telefone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          formControlName="phone"
+          mask="(00) 00000-0000"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.phone.errors,
+            'is-valid': isSubmitted && !f.phone.errors
+          }"
+        />
+        
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <label for="cpf" class="form-label">CPF</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cpf"
+          formControlName="cpf"
+          mask="000.000.000-00"
+          [ngClass]="{
+            'is-invalid': isSubmitted && !this.validateCpf(),
+            'is-valid': isSubmitted && this.validateCpf()
+          }"
+        />
+      </div>
+      <div class="col-xs-12 mt-4">
+        <span class="h5 heading">Endereço</span>
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-2">
+        <label for="zipcode" class="form-label">CEP</label>
+        <input
+          type="text"
+          class="form-control"
+          id="zipcode"
+          formControlName="zipcode"
+          mask="00000-000"
+          (keyup)="autoCompleteAddress($event)"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.zipcode.errors,
+            'is-valid': isSubmitted && f.zipcode.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-4">
+        <label for="address" class="form-label">Logradouro</label>
+        <input
+          type="text"
+          class="form-control"
+          id="address"
+          formControlName="address"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.address.errors,
+            'is-valid': isSubmitted && f.address.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-2">
+        <label for="addressNumber" class="form-label">Número</label>
+        <input
+          type="text"
+          class="form-control"
+          id="addressNumber"
+          formControlName="addressNumber"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.addressNumber.errors,
+            'is-valid': isSubmitted && f.addressNumber.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-4">
+        <label for="addressComplement" class="form-label">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="addressComplement"
+          formControlName="addressComplement"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.addressComplement.errors,
+            'is-valid': isSubmitted && f.addressComplement.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-4">
+        <label for="district" class="form-label">Bairro</label>
+        <input
+          type="text"
+          class="form-control"
+          id="district"
+          formControlName="district"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.district.errors,
+            'is-valid': isSubmitted && f.district.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-4">
+        <label for="city" class="form-label">Cidade</label>
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          formControlName="city"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.city.errors,
+            'is-valid': isSubmitted && f.city.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-4">
+        <label for="account" class="form-label">Estado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="account"
+          formControlName="account"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.account.errors,
+            'is-valid': isSubmitted && f.account.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="agency" class="form-label">Agência</label>
+        <input
+          type="text"
+          class="form-control"
+          id="agency"
+          formControlName="agency"
+          mask="0000-0"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.agency.errors,
+            'is-valid': isSubmitted && f.agency.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="state" class="form-label">Conta</label>
+        <input
+          type="text"
+          class="form-control"
+          id="account"
+          formControlName="account"
+          mask="0000-0"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.agency.errors,
+            'is-valid': isSubmitted && f.agency.errors
+          }"
+        />
+      </div>
+      <div class="col-xs-12 d-flex justify-content-end">
+        <app-btn-loading [isLoading]="isLoading">Enviar</app-btn-loading>
+      </div>
+    </div>
+  </section>
+</form>
+<app-sign-up-success *ngIf="signUpSuccess"></app-sign-up-success>
+

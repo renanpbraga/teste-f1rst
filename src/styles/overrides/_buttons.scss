@@ -1,0 +1,33 @@
+@import '../colors';
+
+.btn {
+  font: normal normal bold 16px/28px Poppins;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-info,
+.btn-success,
+.btn-warning,
+.btn-danger {
+  color: $white;
+  font-weight: 600;
+  &.disabled,
+  &:disabled,
+  &:hover,
+  &:focus {
+    color: $white;
+    font-weight: 600;
+  }
+}
+
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-info,
+.btn-outline-success,
+.btn-outline-warning,
+.btn-outline-danger {
+  &:hover {
+    color: $white;
+  }
+}

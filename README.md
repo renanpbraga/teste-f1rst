@@ -1,27 +1,64 @@
 # TesteFirst
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Este projeto foi desenvolvido como parte do teste de admissão da empresa F1st Tecnologia.
 
-## Development server
+## Desafio
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Tela com formulários para formalização digital.
 
-## Code scaffolding
+### Etapas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Dados do cliente e Produto
+- Simulação
+- Formalização de contratação do produto
+- Integrar com json-server (chamar um endpoint que retorna uma requisição mock).
 
-## Build
+Obs.: Definição de objetos e propriedades é livre.
+Obs.: Definição de payloads é livre.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Será avaliada a navegabilidade entre as telas, integração comsumindo endpoints e estrutura de pacotes.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Iniciando o projeto
 
-## Running end-to-end tests
+Para iniciar, rode o comando ng serve para iniciar a aplicação na rota 4200 (localhost:4200).
+Inicie o banco de dados mock a partir do comando: json-server --watch db.json (localhost:3000).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Se o banco de dados não for iniciado, não será possível fazer qualquer ação dentro da aplicação.
 
-## Further help
+## Fluxo
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Ao iniciar a página, o usuário encontrará cards e uma navbar. Como este é um projeto básico, apenas algumas funcionalidades foram implementadas.
+
+Apenas o card de financiamento veicular está habilitado para uso. E o mesmo está protegido por um guarda de rota, que verifica se o usuário está "autenticado".
+
+## Sign-in / Sign-up
+### Pela navbar
+Para fazer o sign-in, o usuário deverá digitar um CPF válido na navbar, que irá buscar no banco de dados, se o usuário é existente ou não.
+
+Em caso de novo usuário, o sistema irá direcioná-lo para a página de Sign-up, onde ele deverá informar seus dados pessoais para cadastro. Após o cadastro, ele será retornado para a página inicial, onde poderá acessar o card de financiamento veicular.
+
+### Pelo card de financiamento
+Se o usuário não cadastrado clicar no card, será direcionado para a página de login, onde deverá informar sua agência e conta.
+
+Em caso de novo usuário, após a informação, ele será direcionado para a página de sign-up.
+Caso contrário, será redirecionado para a página de financiamento veicular..
+
+## Financiamento veicular
+A página de financiamento veicular foi feita com base na página de simulação de financiamento veicular do Banco Bv. Apenas como exemplo.
+
+Nesta página, o principal foco é obter informações de onde o veículo será vendido (informações do vendedor), qual o veículo e quanto o usuário pretenderá financiar, com base em dados retirados da API da tabela FIPE (notei que às vezes algumas vezes a API fica instável, retornando status 400).
+
+A aplicação também faz integração com a API do viaCEP, facilitando a busca pelos dados de endereço do usuário.
+
+A aplicação busca o preço médio do veículo e deduz do valor de entrada (caso seja fornecido), o valor bruto do financiamento. O valor mínimo de financiamento é de R$ 10.000,00.
+
+Após escolher uma data de vencimento da primeira parcela, que poderá ser escolhida a partir do próximo mês até o mês subsequente e a quantidade de parcelas que desejará pagar, o usuário será direcionado para a página de contratação do financiamento, onde serão exibidos os valores.
+
+Para formalizar o pedido de financiamento, o usuário deverá marcar o checkbox no fim da tabela e em seguida clicar no botão.
+
+## Banco de dados
+
+Após o sign-up, o banco de dados deverá conter as informações fornecidas pelo usuário na página de sign-up.
+
+Após a contratação do financiamento, o banco de dados deverá conter todas as informações fornecidas pelo usuário na página de financiamento veicular.

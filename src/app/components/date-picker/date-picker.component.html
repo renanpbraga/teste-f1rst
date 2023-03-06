@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label class="form-label" *ngIf="title"> {{ title }} </label>
+  <div class="_input_date w-100">
+    <input
+      [placeholder]="title"
+      type="text"
+      class="form-control"
+      bsDatepicker
+      #dp="bsDatepicker"
+      [isOpen]="isOpen"
+      [bsConfig]="bsConfig"
+      [bsValue]="date"
+      (bsValueChange)="changeDate($event)"
+      [isDisabled]="isDisabled"
+      [disabled]="isDisabled"
+      [ngClass]="{ 'is-invalid': isNotValid }"
+      [ngClass]="{ 'is-valid': isValid }"
+    />
+  </div>
+</div>

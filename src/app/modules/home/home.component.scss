@@ -1,0 +1,17 @@
+@import '../../../styles/colors';
+:host {
+  .card {
+    min-width: 150px !important;
+    min-height: 150px !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    color: $darkest;
+    cursor: pointer;
+    .icon {
+      font-size: 32px;
+    }
+    &:hover {
+      color: $primary;
+    }
+  }
+}
